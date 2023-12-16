@@ -1,4 +1,4 @@
-Write-Host  -ForegroundColor Purple "Starting TechnicaVivunt Custom OSDCloud ..."
+Write-Host  -ForegroundColor DarkMagenta "Starting TechnicaVivunt Custom OSDCloud ..."
 cls
 Write-Host "===================== Main Menu =======================" -ForegroundColor DarkMagenta
 Write-Host "=======================================================" -ForegroundColor DarkMagenta
