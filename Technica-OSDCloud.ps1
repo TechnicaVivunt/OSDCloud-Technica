@@ -1,14 +1,14 @@
-Write-Host  -ForegroundColor DarkMagenta "Starting TechnicaVivunt Custom OSDCloud ..."
+Write-Host "Starting TechnicaVivunt Custom OSDCloud ..."
 cls
-Write-Host "===================== Main Menu =======================" -ForegroundColor DarkMagenta
-Write-Host "=======================================================" -ForegroundColor DarkMagenta
-Write-Host "1: Zero-Touch Win10 21H1 | English | Enterprise"-ForegroundColor DarkMagenta
-Write-Host "2: Zero-Touch Win11 22H2 | English | Enterprise" -ForegroundColor DarkMagenta
-Write-Host "3: I'll select it myself"-ForegroundColor DarkMagenta
-Write-Host "4: Exit`n"-ForegroundColor DarkMagenta
+Write-Host "===================== Main Menu ======================="
+Write-Host "======================================================="
+Write-Host "1: Zero-Touch Win10 21H1 | English | Enterprise"
+Write-Host "2: Zero-Touch Win11 22H2 | English | Enterprise"
+Write-Host "3: I'll select it myself"
+Write-Host "4: Exit`n"
 $input = Read-Host "Please make a selection"
 
-Write-Host  -ForegroundColor DarkMagenta "Loading OSDCloud..."
+Write-Host "Loading OSDCloud..."
 
 Import-Module OSD -Force
 Install-Module OSD -Force
