@@ -16,7 +16,7 @@ Install-Module OSD -Force
 switch ($input)
 {
     '1' { Start-OSDCloud -OSLanguage en-us -OSName 'Windows 10 22H2 x64' -OSEdition Enterprise -ZTI } 
-    '2' { Start-OSDCloud -OSLanguage en-us -OSName 'Windows 11 24H2 x64' -OSEdition Enterprise -ZTI } 
+    '2' { Start-OSDCloud -OSLanguage en-us -OSName 'Windows 11 23H2 x64' -OSEdition Enterprise -ZTI } 
     '3' { Start-OSDCloudGUI -Brand 'Dell'} 
     '4' { Exit		}
 }
