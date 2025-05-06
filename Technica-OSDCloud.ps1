@@ -7,7 +7,8 @@ $serial = (Get-CimInstance -ClassName Win32_BIOS).SerialNumber
 Write-Host "$manufacturer"
 Write-Host "$model"
 Write-Host "$serial"
-
+Import-Module OSD -Force -ErrorAction SilentlyContinue -ProgressAction SilentlyContinue
+Install-Module OSD -Force -ErrorAction SilentlyContinue -ProgressAction SilentlyContinue
 Write-Host "===================== Main Menu ======================="
 Write-Host "======================================================="
 Write-Host "1: Zero-Touch Win11 24H2 | English | Enterprise"
@@ -16,8 +17,6 @@ Write-Host "3: I'll select it myself"
 Write-Host "4: Exit`n"
 $input = Read-Host "Please make a selection"
 Write-Host "Loading OSDCloud..."
-Import-Module OSD -Force -ErrorAction SilentlyContinue -ProgressAction SilentlyContinue
-Install-Module OSD -Force -ErrorAction SilentlyContinue -ProgressAction SilentlyContinue
 $OSDModuleResource.StartOSDCloudGUI.BrandName = "$manufacturer $model"
 $OSDModuleResource.StartOSDCloudGUI.ComputerProduct = " Serial: $serial"
 $OSDModuleResource.StartOSDCloudGUI.ComputerManufacturer = "$manufacturer"
