@@ -23,5 +23,3 @@ switch ($input)
     '3' { Start-OSDCloudGUI -Brand "$manufacturer $model : $serial" -Firmware -ComputerManufacturer '$manufacturer $model' -ComputerProduct "$ipAddress"} 
     '4' { Exit }
 }
-
-wpeutil reboot
