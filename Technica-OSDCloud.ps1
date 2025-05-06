@@ -16,10 +16,17 @@ $manufacturer = (Get-CimInstance -ClassName Win32_ComputerSystem).Manufacturer
 $model = (Get-CimInstance -ClassName Win32_ComputerSystem).Model
 $ipAddress = (Get-NetIPAddress -AddressFamily IPv4 -InterfaceAlias (Get-NetAdapter | Where-Object {$_.Status -eq "Up"} | Select-Object -First 1).InterfaceAlias).IPAddress
 $serial = (Get-CimInstance -ClassName Win32_BIOS).SerialNumber
+
+Write-Host "$manufacturer"
+Write-Host "$model"
+Write-Host "$serial"
+Write-Host "$ipAddress"
+
+
 switch ($input)
 {
     '1' { Start-OSDCloud -OSLanguage en-us -OSName 'Windows 11 24H2 x64' -OSEdition Enterprise -ZTI -Firmware} 
     '2' { Start-OSDCloud -OSLanguage en-us -OSName 'Windows 11 24H2 x64' -OSEdition Pro -ZTI -Firmware} 
-    '3' { Start-OSDCloudGUI -Brand "$manufacturer $model : $serial" -Firmware -ComputerManufacturer '$manufacturer $model' -ComputerProduct "$ipAddress"} 
+    '3' { Start-OSDCloudGUI -Firmware} 
     '4' { Exit }
 }
