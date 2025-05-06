@@ -2,23 +2,26 @@ Write-Host "Starting TechnicaVivunt Custom OSDCloud ..."
 cls
 Write-Host "===================== Main Menu ======================="
 Write-Host "======================================================="
-Write-Host "1: Zero-Touch Win10 22H2 | English | Enterprise"
-Write-Host "2: Zero-Touch Win11 24H2 | English | Enterprise"
+Write-Host "1: Zero-Touch Win11 24H2 | English | Enterprise"
+Write-Host "1: Zero-Touch Win11 24H2 | English | Pro"
 Write-Host "3: I'll select it myself"
 Write-Host "4: Exit`n"
 $input = Read-Host "Please make a selection"
 
 Write-Host "Loading OSDCloud..."
 
-Import-Module OSD -Force
-Install-Module OSD -Force
-
+Import-Module OSD -Force | Out-Null
+Install-Module OSD -Force | Out-Null
+$manufacturer = (Get-CimInstance -ClassName Win32_ComputerSystem).Manufacturer
+$model = (Get-CimInstance -ClassName Win32_ComputerSystem).Model
+$ipAddress = (Get-NetIPAddress -AddressFamily IPv4 -InterfaceAlias (Get-NetAdapter | Where-Object {$_.Status -eq "Up"} | Select-Object -First 1).InterfaceAlias).IPAddress
+$serial = (Get-CimInstance -ClassName Win32_BIOS).SerialNumber
 switch ($input)
 {
-    '1' { Start-OSDCloud -OSLanguage en-us -OSName 'Windows 10 22H2 x64' -OSEdition Enterprise -ZTI } 
-    '2' { Start-OSDCloud -OSLanguage en-us -OSName 'Windows 11 23H2 x64' -OSEdition Enterprise -ZTI } 
-    '3' { Start-OSDCloudGUI -Brand 'Dell'} 
-    '4' { Exit		}
+    '1' { Start-OSDCloud -OSLanguage en-us -OSName 'Windows 11 24H2 x64' -OSEdition Enterprise -ZTI -Firmware} 
+    '2' { Start-OSDCloud -OSLanguage en-us -OSName 'Windows 11 24H2 x64' -OSEdition Pro -ZTI -Firmware} 
+    '3' { Start-OSDCloudGUI -Brand "$manufacturer $model : $serial" -Firmware -ComputerManufacturer '$manufacturer $model' -ComputerProduct "$ipAddress"} 
+    '4' { Exit }
 }
 
 wpeutil reboot
