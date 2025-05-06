@@ -17,7 +17,7 @@ Write-Host "3: I'll select it myself"
 Write-Host "4: Exit`n"
 $input = Read-Host "Please make a selection"
 Write-Host "Loading OSDCloud..."
-$OSDModuleResource.StartOSDCloudGUI.BrandName = "Serial Number: $serial"
+$OSDModuleResource.StartOSDCloudGUI.BrandName = "Serial Number - $serial"
 $OSDModuleResource.StartOSDCloudGUI.ComputerManufacturer = "$manufacturer"
 $OSDModuleResource.StartOSDCloudGUI.ComputerModel = "$model"
 $OSDModuleResource.StartOSDCloudGUI.updateFirmware = $true
