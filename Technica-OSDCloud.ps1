@@ -19,7 +19,7 @@ Write-Host "Loading OSDCloud..."
 Import-Module OSD -Force -ErrorAction SilentlyContinue -ProgressAction SilentlyContinue
 Install-Module OSD -Force -ErrorAction SilentlyContinue -ProgressAction SilentlyContinue
 $OSDModuleResource.StartOSDCloudGUI.BrandName = "$manufacturer $model"
-$OSDModuleResource.StartOSDCloudGUI.ComputerProduct = "$serial"
+$OSDModuleResource.StartOSDCloudGUI.ComputerProduct = " Serial: $serial"
 $OSDModuleResource.StartOSDCloudGUI.ComputerManufacturer = "$manufacturer"
 $OSDModuleResource.StartOSDCloudGUI.ComputerModel = "$model"
 switch ($input)
