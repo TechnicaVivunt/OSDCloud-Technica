@@ -27,6 +27,6 @@ switch ($input)
     '1' { Start-OSDCloud -OSLanguage en-us -OSName 'Windows 11 24H2 x64' -OSEdition Enterprise -ZTI -Firmware} 
     '2' { Start-OSDCloud -OSLanguage en-us -OSName 'Windows 11 24H2 x64' -OSEdition Pro -ZTI -Firmware} 
     '3' { Start-OSDCloudGUI
-    Read-Host "Holding for testing} 
+    Read-Host 'Holding for testing'} 
     default { Exit }
 }
